@@ -1,0 +1,22 @@
+{
+  "name": "Lebab",
+  "version": "0.0.1",
+  "description": "Lebab for sublime text, convert ES5 to ES6",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inkless/lebab-sublime.git"
+  },
+  "keywords": [
+    "javascript",
+    "lebab",
+    "es5",
+    "es6",
+    "convert"
+  ],
+  "author": "Guangda Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inkless/lebab-sublime/issues"
+  },
+  "homepage": "https://github.com/inkless/lebab-sublime"
+}
