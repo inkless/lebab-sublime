@@ -1,0 +1,9 @@
+[
+  {
+    "caption": "Lebab",
+    "children": [{
+      "caption": "Convert ES5 to ES6",
+      "command": "lebab"
+    }]
+  }
+]

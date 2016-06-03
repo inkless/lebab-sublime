@@ -1,0 +1,30 @@
+{
+  // Simply using `node` without specifying a path sometimes doesn't work :(
+  // https://github.com/victorporof/Sublime-HTMLPrettify#oh-noez-command-not-found
+  // http://nodejs.org/#download
+  "node_path": {
+    "windows": "node.exe",
+    "linux": "/usr/bin/nodejs",
+    "osx": "/usr/local/bin/node"
+  },
+
+  "lebab_path": {
+    "windows": "%APPDATA%/npm/node_modules/lebab/bin/index.js",
+    "linux": "/usr/bin/lebab",
+    "osx": "/usr/local/bin/lebab"
+  },
+
+  // Specify this path to a Lebab config file to override the default behavior.
+  // Passed to Lebab as --config. Read more here:
+  "config_path": "",
+
+  // Automatically format when a file is saved.
+  "format_on_save": false,
+
+  // Only attempt to format files with whitelisted extensions on save.
+  // Leave empty to disable the check
+  "format_on_save_extensions": [
+    "js",
+    "es5"
+  ]
+}

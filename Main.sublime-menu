@@ -1,0 +1,13 @@
+[
+  {
+    "id": "tools",
+    "children": [{
+      "id": "lebab_tools",
+      "caption": "Lebab",
+      "children": [{
+        "caption": "Convert ES5 to ES6",
+        "command": "lebab"
+      }]
+    }]
+  }
+]
