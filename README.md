@@ -20,6 +20,24 @@ To install via Package Control, do the following:
 1. Within Sublime Text, bring up the [Command Palette](http://docs.sublimetext.info/en/sublime-text-3/extensibility/command_palette.html) and type `install`. Among the commands you should see `Package Control: Install Package`. If that command is not highlighted, use the keyboard or mouse to select it. There will be a pause of a few seconds while Package Control fetches the list of available plugins.
 2. When the plugin list appears, type `lebab`. Among the entries you should see `Lebab`. If that entry is not highlighted, use the keyboard or mouse to select it.
 
+####Install manually (Optional)
+Download this repository to your sublime's package:
+
+**Windows:**
+```
+%APPDATA%\Sublime Text 3\Packages
+```
+
+**OS X:**
+```
+~/Library/Application Support/Sublime Text 3/Packages
+```
+
+**Linux:**
+```
+~/.config/sublime-text-3/packages
+```
+
 ## Commands
 **Command palette:**
 
