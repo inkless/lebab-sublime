@@ -28,12 +28,14 @@ class LebabCommand(sublime_plugin.TextCommand):
         sublime.error_message('Lebab could not be found on your path')
         return;
 
-      cmd = [node_path, lebab_path, self.view.file_name(), '-o', self.view.file_name()]
+      # TODO
+      # convert code when not saved
+      if not self.view.file_name():
+        sublime.error_message('Please save the file before run lebab')
+        return;
 
-      if self.view.file_name():
-          cdir = os.path.dirname(self.view.file_name())
-      else:
-          cdir = "/"
+      cmd = [node_path, lebab_path, self.view.file_name(), '-o', self.view.file_name()]
+      cdir = os.path.dirname(self.view.file_name())
 
       PluginUtils.exec(cmd, cdir)
 
