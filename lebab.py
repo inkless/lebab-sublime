@@ -21,8 +21,8 @@ IS_WINDOWS = platform.system() == 'Windows'
 class LebabCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     try:
-      node_path = PluginUtils.get_node_path()
-      lebab_path = PluginUtils.get_lebab_path()
+      node_path = get_node_path()
+      lebab_path = get_lebab_path()
 
       if lebab_path == False:
         sublime.error_message('Lebab could not be found on your path')
@@ -37,7 +37,7 @@ class LebabCommand(sublime_plugin.TextCommand):
       cmd = [node_path, lebab_path, self.view.file_name(), '-o', self.view.file_name()]
       cdir = os.path.dirname(self.view.file_name())
 
-      PluginUtils.execute(cmd, cdir)
+      execute(cmd, cdir)
 
     except:
       # Something bad happened.
