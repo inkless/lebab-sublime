@@ -45,6 +45,12 @@ Download this repository to your sublime's package:
 
 **Shortcut key:**
 
+Updates: Recently I just removed the shortcut, you can add it back through:
+
+```
+Preferences -> Package Settings -> Lebab -> Key Bindings - User
+```
+
 * Linux/Windows: [Ctrl + Shift + L]
 * Mac: [Cmd + Shift + L]
 
