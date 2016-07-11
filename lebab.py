@@ -14,7 +14,6 @@ except ImportError:
 
 PROJECT_NAME = "lebab"
 SETTINGS_FILE = PROJECT_NAME + ".sublime-settings"
-KEYMAP_FILE = "Default ($PLATFORM).sublime-keymap"
 
 IS_WINDOWS = platform.system() == 'Windows'
 

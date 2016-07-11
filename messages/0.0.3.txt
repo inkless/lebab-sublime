@@ -1,0 +1,6 @@
+JSCS-Formatter 0.0.3 changelog
+
+CHANGES/FIXES
+
++ fix python error
+
