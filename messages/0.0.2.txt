@@ -1,0 +1,6 @@
+JSCS-Formatter 0.0.2 changelog
+
+CHANGES/FIXES
+
++ remove default key bindings
+

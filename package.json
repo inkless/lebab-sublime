@@ -1,6 +1,6 @@
 {
   "name": "Lebab",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lebab for sublime text, convert ES5 to ES6",
   "repository": {
     "type": "git",
