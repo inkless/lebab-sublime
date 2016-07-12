@@ -1,4 +1,4 @@
-JSCS-Formatter 0.0.2 changelog
+Lebab-Sublime 0.0.2 changelog
 
 CHANGES/FIXES
 
