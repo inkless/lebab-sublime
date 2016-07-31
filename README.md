@@ -43,16 +43,18 @@ Download this repository to your sublime's package:
 
 - Lebab: convert ES5 to ES6
 
-**Shortcut key:**
+## Options
+**Disable commonjs:**
 
-Updates: Recently I just removed the shortcut, you can add it back through:
+Add following settings to your default/user settings:
 
+```json
+{
+  "commonjs": false
+}
 ```
-Preferences -> Package Settings -> Lebab -> Key Bindings - User
-```
 
-* Linux/Windows: [Ctrl + Shift + L]
-* Mac: [Cmd + Shift + L]
+This will disable *import* and *export* conversion.
 
 ## Contributing
 

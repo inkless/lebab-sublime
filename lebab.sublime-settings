@@ -12,5 +12,7 @@
     "windows": "%APPDATA%/npm/node_modules/lebab/bin/index.js",
     "linux": "/usr/bin/lebab",
     "osx": "/usr/local/bin/lebab"
-  }
+  },
+
+  "commonjs": true
 }

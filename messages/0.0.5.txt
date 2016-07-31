@@ -1,0 +1,5 @@
+Lebab-Sublime 0.0.5 changelog
+
+CHANGES/FIXES
+
++ Add options to disable commonjs conversion

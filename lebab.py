@@ -33,7 +33,13 @@ class LebabCommand(sublime_plugin.TextCommand):
         sublime.error_message('Please save the file before run lebab')
         return;
 
-      cmd = [node_path, lebab_path, self.view.file_name(), '-o', self.view.file_name()]
+      commonjs_enabled = get_commonjs_enabled()
+
+      if commonjs_enabled:
+        cmd = [node_path, lebab_path, self.view.file_name(), '-o', self.view.file_name()]
+      else:
+        cmd = [node_path, lebab_path, '--disable', 'commonjs', self.view.file_name(), '-o', self.view.file_name()]
+
       cdir = os.path.dirname(self.view.file_name())
 
       execute(cmd, cdir)
@@ -68,6 +74,11 @@ def get_lebab_path():
   lebab = get_pref("lebab_path").get(platform)
   print("Using lebab path on '" + platform + "': " + lebab)
   return lebab
+
+def get_commonjs_enabled():
+  commonjs_enabled = get_pref("commonjs")
+  print("Commonjs option " + str(commonjs_enabled))
+  return commonjs_enabled
 
 def execute(cmd, cdir):
   try:
