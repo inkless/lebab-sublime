@@ -4,94 +4,92 @@
 
 import sublime, sublime_plugin
 import platform
-import os, sys, subprocess, codecs, webbrowser
+import os, sys
 from subprocess import Popen, PIPE
-
-try:
-  import commands
-except ImportError:
-  pass
 
 PROJECT_NAME = "lebab"
 SETTINGS_FILE = PROJECT_NAME + ".sublime-settings"
 
 IS_WINDOWS = platform.system() == 'Windows'
 
+
 class LebabCommand(sublime_plugin.TextCommand):
-  def run(self, edit):
-    try:
-      node_path = get_node_path()
-      lebab_path = get_lebab_path()
+    def run(self, edit):
+        try:
+            node_path = get_node_path()
+            lebab_path = get_lebab_path()
 
-      if lebab_path == False:
-        sublime.error_message('Lebab could not be found on your path')
-        return;
+            if lebab_path is False:
+                sublime.error_message('Lebab could not be found on your path')
+                return
 
-      # TODO
-      # convert code when not saved
-      if not self.view.file_name():
-        sublime.error_message('Please save the file before run lebab')
-        return;
+            # TODO
+            # convert code when not saved
+            if not self.view.file_name():
+                sublime.error_message('Please save the file before run lebab')
+                return
 
-      commonjs_enabled = get_commonjs_enabled()
+            transforms = get_transforms()
 
-      if commonjs_enabled:
-        cmd = [node_path, lebab_path, self.view.file_name(), '-o', self.view.file_name()]
-      else:
-        cmd = [node_path, lebab_path, '--disable', 'commonjs', self.view.file_name(), '-o', self.view.file_name()]
+            cmd = [node_path, lebab_path, '-t', ','.join(transforms), self.view.file_name(), '-o', self.view.file_name()]
 
-      cdir = os.path.dirname(self.view.file_name())
+            cdir = os.path.dirname(self.view.file_name())
 
-      execute(cmd, cdir)
+            execute(cmd, cdir)
 
-    except:
-      # Something bad happened.
-      msg = str(sys.exc_info()[1])
-      print("Unexpected error({0}): {1}".format(sys.exc_info()[0], msg))
-      sublime.error_message(msg)
+        except:
+            # Something bad happened.
+            msg = str(sys.exc_info()[1])
+            print("Unexpected error({0}): {1}".format(sys.exc_info()[0], msg))
+            sublime.error_message(msg)
+
 
 def get_pref(key):
-  global_settings = sublime.load_settings(SETTINGS_FILE)
-  value = global_settings.get(key)
+    global_settings = sublime.load_settings(SETTINGS_FILE)
+    value = global_settings.get(key)
 
-  # Load active project settings
-  project_settings = sublime.active_window().active_view().settings()
+    # Load active project settings
+    project_settings = sublime.active_window().active_view().settings()
 
-  # Overwrite global config value if it's defined
-  if project_settings.has(PROJECT_NAME):
-    value = project_settings.get(PROJECT_NAME).get(key, value)
+    # Overwrite global config value if it's defined
+    if project_settings.has(PROJECT_NAME):
+        value = project_settings.get(PROJECT_NAME).get(key, value)
 
-  return value
+    return value
+
 
 def get_node_path():
-  platform = sublime.platform()
-  node = get_pref("node_path").get(platform)
-  print("Using node.js path on '" + platform + "': " + node)
-  return node
+    platform = sublime.platform()
+    node = get_pref("node_path").get(platform)
+    print("Using node.js path on '" + platform + "': " + node)
+    return node
+
 
 def get_lebab_path():
-  platform = sublime.platform()
-  lebab = get_pref("lebab_path").get(platform)
-  print("Using lebab path on '" + platform + "': " + lebab)
-  return lebab
+    platform = sublime.platform()
+    lebab = get_pref("lebab_path").get(platform)
+    print("Using lebab path on '" + platform + "': " + lebab)
+    return lebab
 
-def get_commonjs_enabled():
-  commonjs_enabled = get_pref("commonjs")
-  print("Commonjs option " + str(commonjs_enabled))
-  return commonjs_enabled
+
+def get_transforms():
+    transforms = get_pref("transforms")
+    print("Transforms option " + str(transforms))
+    return transforms
+
 
 def execute(cmd, cdir):
-  try:
-    p = Popen(cmd,
-      stdout=PIPE, stdin=PIPE, stderr=PIPE,
-      cwd=cdir, shell=IS_WINDOWS)
-  except OSError:
-    raise Exception('Couldn\'t find Node.js. Make sure it\'s in your $PATH by running `node -v` in your command-line.')
-  stdout, stderr = p.communicate()
-  stdout = stdout.decode('utf-8')
-  stderr = stderr.decode('utf-8')
+    try:
+        p = Popen(cmd,
+                  stdout=PIPE, stdin=PIPE, stderr=PIPE,
+                  cwd=cdir, shell=IS_WINDOWS)
+    except OSError:
+        raise Exception('Couldn\'t find Node.js. Make sure it\'s in your $PATH by running `node -v` in your command-line.')
+    stdout, stderr = p.communicate()
+    stdout = stdout.decode('utf-8')
+    stderr = stderr.decode('utf-8')
 
-  if stderr:
-    raise Exception('Error: %s' % stderr)
-  else:
-    return stdout
+    if stderr:
+        raise Exception('Error: %s' % stderr)
+    else:
+        return stdout
