@@ -44,17 +44,29 @@ Download this repository to your sublime's package:
 - Lebab: convert ES5 to ES6
 
 ## Options
-**Disable commonjs:**
+**Transforms:**
 
-Add following settings to your default/user settings:
+This plugin only enable the sate transforms from lebab (except `exponent` since
+it's ES7), but you can enable all or any of them by changing the transforms option
+in you user settings.
+
+NOTE: To see a full list of transforms run `lebab -h` in your terminal
 
 ```json
 {
-  "commonjs": false
+  "transforms": [
+    "arrow",
+    "for-of",
+    "arg-spread",
+    "obj-method",
+    "obj-shorthand",
+    "no-strict",
+    "commonjs",
+    "exponent",
+    "multi-var"
+  ]
 }
 ```
-
-This will disable *import* and *export* conversion.
 
 ## Contributing
 
