@@ -34,13 +34,10 @@
   //  default-param .. use of || to default parameters
   "transforms": [
     "arrow",
-    "for-of",
     "arg-spread",
     "obj-method",
     "obj-shorthand",
     "no-strict",
-    "commonjs",
-    "exponent",
-    "multi-var"
+    "commonjs"
   ]
 }

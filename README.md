@@ -46,24 +46,22 @@ Download this repository to your sublime's package:
 ## Options
 **Transforms:**
 
-This plugin only enables the safe transforms from Lebab (except `exponent` since
-it's ES7), but you can enable all or any of them by changing the transforms option
-in your user settings.
+This plugin only enables the safest transforms from Lebab, but you can enable
+all or any of them by changing the transforms option in your user settings.
 
 NOTE: To see a full list of transforms run `lebab -h` in your terminal
+
+Here is the active transforms by default:
 
 ```json
 {
   "transforms": [
     "arrow",
-    "for-of",
     "arg-spread",
     "obj-method",
     "obj-shorthand",
     "no-strict",
-    "commonjs",
-    "exponent",
-    "multi-var"
+    "commonjs"
   ]
 }
 ```

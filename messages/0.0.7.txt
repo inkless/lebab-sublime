@@ -1,0 +1,5 @@
+Lebab-Sublime 0.0.7 changelog
+
+CHANGES/FIXES
+
++ Removed `for-of` and `multi-var` form the list of default transforms

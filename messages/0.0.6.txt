@@ -1,0 +1,5 @@
+Lebab-Sublime 0.0.6 changelog
+
+CHANGES/FIXES
+
++ Compatibility with lebab 2.0
