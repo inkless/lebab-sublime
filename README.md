@@ -4,7 +4,7 @@ A plugin to convert ES5 code to ES6 code.
 
 ##Installation
 ####Prerequisites
-The plugin requires an npm module `lebab` installed in you machine locally.
+The plugin requires an npm module `lebab` installed in your machine locally.
 
 1. Install [Node.js](https://nodejs.org)
 2. Install [lebab](http://lebab.io/)
@@ -46,9 +46,9 @@ Download this repository to your sublime's package:
 ## Options
 **Transforms:**
 
-This plugin only enable the sate transforms from lebab (except `exponent` since
+This plugin only enables the safe transforms from Lebab (except `exponent` since
 it's ES7), but you can enable all or any of them by changing the transforms option
-in you user settings.
+in your user settings.
 
 NOTE: To see a full list of transforms run `lebab -h` in your terminal
 
